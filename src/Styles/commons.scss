@@ -1,17 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-button {
-  border: none;
-}
-
-@mixin center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 $backgroundColor: #fafafa;
 $boxbackgroundColor: #ffffff;
 $borderColor: rgb(219, 219, 219);
@@ -21,6 +7,26 @@ $lightGrayColor: #c7c7c7;
 $blueColor: #0095f6;
 $radius: 3px;
 
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+}
+
 h1 {
   color: red;
+}
+
+input {
+  &:focus {
+    outline: none;
+  }
 }

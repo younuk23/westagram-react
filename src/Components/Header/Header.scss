@@ -1,0 +1,81 @@
+@import "../../Styles/commons.scss";
+
+.Header {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 54px;
+  padding: 5px 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: $boxbackgroundColor;
+  border-bottom: 1px solid $borderColor;
+
+  img {
+    height: 100%;
+  }
+
+  nav {
+    width: 100%;
+    max-width: 935px;
+    height: 30px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      height: 100%;
+    }
+
+    .logoContainer {
+      display: flex;
+      align-items: center;
+    }
+
+    .hline {
+      width: 2px;
+      margin: 0 10px;
+      background-color: $blackColor;
+    }
+
+    .search {
+      width: 200px;
+      height: 100%;
+
+      &::placeholder {
+        text-align: center;
+        font-size: 14px;
+        color: $lightGrayColor;
+      }
+    }
+
+    @media screen and (max-width: 550px) {
+      .search {
+        display: none;
+      }
+    }
+  }
+
+  .iconLists {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    .icon {
+      height: 22px;
+      margin-right: 15px;
+
+      img {
+        border-radius: 50%;
+      }
+
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+}
