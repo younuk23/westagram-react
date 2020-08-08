@@ -1,0 +1,182 @@
+@import "../../../Styles/commons.scss";
+.MainY {
+  // Global
+  img {
+    height: 100%;
+  }
+
+  a {
+    color: $blackColor;
+  }
+
+  body {
+    position: relative;
+    max-width: 1020px;
+    height: 100%;
+    margin: 20px auto;
+    background-color: &backgroundColor;
+  }
+
+  /* main */
+  main {
+    position: relative;
+    display: flex;
+    max-width: 935px;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 84px;
+  }
+
+  /* feed */
+  .feedSection {
+    height: 100%;
+    width: 613px;
+  }
+
+  /* story, recommend에도 적용하는 속성*/
+  .feed .feedHeader .avatar {
+    height: 100%;
+    padding: 16px;
+  }
+
+  .avatar img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+
+  .authorName {
+    font-weight: $boldFont;
+    color: $blackColor;
+  }
+
+  .authorName:hover {
+    cursor: pointer;
+  }
+
+  /* story, recommend에도 적용하는 속성 끝*/
+
+  /* loginSection */
+
+  .asideSectionWrapper {
+    position: absolute;
+    right: 270px;
+  }
+
+  /* main{
+    position: relative;
+    } 상단에 메인에 적용시킨 사항이지만, relative, absolute, fixed를 같이 사용해
+    loginSection을 고정하는 로직을 알아보기 위해 주석으로 남겨 둠 */
+
+  .asideSection {
+    position: fixed;
+    width: 268px;
+  }
+
+  /* right-header */
+
+  .asideSection .description {
+    font-size: 12px;
+    color: $lightGrayColor;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .asideSection header {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .bigAvatar img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .myInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .myInfo span {
+    padding: 2px 0;
+  }
+
+  /* story */
+  .storyContainer {
+    margin-bottom: 16px;
+    font-weight: $boldFont;
+    border: 1px solid $borderColor;
+    border-radius: $radius;
+    background-color: $backgroundColor;
+  }
+
+  .storyheader {
+    margin: 8px 0;
+    padding: 8px;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .storyname {
+    font-size: 14px;
+    font-weight: 400;
+    color: $lightGrayColor;
+  }
+
+  .seeAll {
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .storyList {
+    padding: 8px;
+  }
+
+  .storyList .story {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .storyList .story img {
+    margin-right: 10px;
+  }
+
+  .storyContainer .friendsName {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .storyContainer .description {
+    height: inherit;
+  }
+
+  .story button {
+    margin-left: 20px;
+    font-size: 12px;
+    font-weight: $boldFont;
+    color: $blueColor;
+    white-space: nowrap;
+    background-color: $backgroundColor;
+  }
+
+  .copyright {
+    font-size: 12px;
+    color: $lightGrayColor;
+  }
+
+  @media screen and (max-width: 900px) {
+    .asideSection {
+      display: none;
+    }
+  }
+}
