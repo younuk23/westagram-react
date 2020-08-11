@@ -1,17 +1,17 @@
 import React from "react";
-import "./Main.scss";
-import Header from "../../../Components/Header/Header";
+import Nav from "../../../Components/Nav/Nav";
 import Story from "./Story";
 import Recommend from "./Recommend";
 import Footer from "./Footer";
-import Data from "./Data";
 import Feed from "./Feed";
+import Data from "./Data";
+import "./Main.scss";
 
 class Main extends React.Component {
   render() {
     return (
       <div className="MainY">
-        <Header />
+        <Nav />
         <main className="main">
           <section className="feedSection">
             {Data.feedData.map((el, index) => {

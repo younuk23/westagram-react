@@ -1,11 +1,11 @@
 import React from "react";
-import "./Header.scss";
+import "./Nav.scss";
 
-class Header extends React.Component {
+class Nav extends React.Component {
   render() {
     return (
-      <header className="Header">
-        <nav>
+      <nav className="Nav">
+        <div className="navContents">
           <div className="logoContainer">
             <div className="imgLogo">
               <img src="/images/common/logo.png" alt="Instagram logo" />
@@ -30,9 +30,9 @@ class Header extends React.Component {
               <img alt="Profile icon" src="/images/common/myPage.png" />
             </li>
           </ul>
-        </nav>
-      </header>
+        </div>
+      </nav>
     );
   }
 }
-export default Header;
+export default Nav;

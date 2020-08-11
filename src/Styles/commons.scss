@@ -13,21 +13,20 @@ $radius: 3px;
   align-items: center;
 }
 
-* {
-  box-sizing: border-box;
+@mixin centerSetDirection($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
 }
 
-button {
-  border: none;
-  outline: none;
+@mixin flexCenterAndSetJustify($justify-content: center) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify-content;
 }
 
-a {
-  text-decoration: none;
-}
-
-input {
-  &:focus {
-    outline: none;
-  }
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
 }

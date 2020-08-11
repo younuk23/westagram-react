@@ -1,59 +1,52 @@
 import React from "react";
+import Comment from "./Comment";
 import "./Feed.scss";
 
-class Comment extends React.Component {
-  render() {
-    return (
-      <li className="Comment">
-        <div className="commentList__comments">
-          <a href="" className="authorName">
-            {this.props.commentInfo.author}
-          </a>
-          <span>&nbsp;{this.props.commentInfo.contents}</span>
-        </div>
-        <div className="commentListBtns">
-          <img
-            className="commentLikeBtn"
-            alt="like-to-comment"
-            src="/images/yeonuk/heart.png"
-          />
-          <img
-            className="commentDeleteBtn"
-            alt="deletebutton"
-            src="/images/yeonuk/del.png"
-          />
-        </div>
-      </li>
-    );
-  }
-}
-
-class Feed1 extends React.Component {
+class Feed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      commentInfo: this.props.feedInfo.comments,
+      commentInfo: props.feedInfo.comments,
       commentInput: "",
+      isItLiked: false,
     };
   }
 
+  deleteComment = (index) => {
+    const deletedComment = [...this.state.commentInfo];
+    deletedComment.splice(index, 1);
+    this.setState({ commentInfo: deletedComment });
+  };
+
+  iLikeIt() {
+    this.setState({
+      isItLiked: !this.state.isItLiked,
+    });
+  }
+
   isItEnter = (e) => {
-    if (e.key === "Enter" && e.target.value.length > 1) {
+    if (e.key === "Enter" && e.target.value.length >= 1) {
       return true;
     } else {
       return false;
     }
   };
 
-  commentAppending = (e) => {
+  commentAppending = () => {
     this.state.commentInfo.push({
       author: "yeonuk",
       contents: this.state.commentInput,
     });
-    this.setState({ commentInput: "" });
+  };
+
+  clearCommentWriteArea = () => {
+    this.setState({
+      commentInput: "",
+    });
   };
 
   render() {
+    const { commentInfo, commentInput, isItLiked } = this.state;
     return (
       <article className="Feed">
         <div className="feedHeader">
@@ -81,7 +74,12 @@ class Feed1 extends React.Component {
               <img
                 className="icon heartIcon"
                 alt="heart"
-                src="/images/yeonuk/heart.png"
+                onClick={this.iLikeIt.bind(this)}
+                src={
+                  isItLiked
+                    ? "./images/yeonuk/redheart.png"
+                    : "./images/yeonuk/heart.png"
+                }
               />
               <img
                 className="icon"
@@ -127,8 +125,16 @@ class Feed1 extends React.Component {
               </span>
             </div>
             <ul className="commentList">
-              {this.state.commentInfo.map((el, index) => {
-                return <Comment key={index} commentInfo={el} />;
+              {commentInfo.map((el, index) => {
+                return (
+                  <Comment
+                    key={index}
+                    commentInfo={el}
+                    iLikeIt={this.iLikeIt}
+                    deleteComment={this.deleteComment}
+                    index={index}
+                  />
+                );
               })}
             </ul>
           </div>
@@ -138,21 +144,31 @@ class Feed1 extends React.Component {
               <textarea
                 name="comment"
                 className="comment Writing Area"
-                value={this.state.commentInput}
+                value={commentInput}
                 onChange={(e) => {
                   this.setState({ commentInput: e.target.value });
                 }}
                 onKeyDown={(e) => {
                   if (this.isItEnter(e)) {
                     this.commentAppending();
+                    this.clearCommentWriteArea();
                   }
                 }}
+                onKeyUp={(e) => {
+                  if (this.isItEnter(e)) {
+                    this.clearCommentWriteArea();
+                  }
+                }}
+                //엔터로 댓글 작성 시 엔터를 누를 경우 onChange가 일어난 것으로 인식되어서 state값에 포함되어서 다음 댓글앞에 하나의 빈칸이 들어가는 것 해결하기 위해서 onKeyUp에 clearCommentWrtingArea 추가
                 placeholder="댓글 달기..."
               ></textarea>
               <button
                 className="commentWriteBtn"
                 type="button"
-                onClick={(e) => this.commentAppending(e)}
+                onClick={() => {
+                  this.commentAppending();
+                  this.clearCommentWriteArea();
+                }}
               >
                 게시
               </button>
@@ -164,4 +180,4 @@ class Feed1 extends React.Component {
   }
 }
 
-export default Feed1;
+export default Feed;

@@ -1,27 +1,29 @@
 import React from "react";
-import "./Login.scss";
 import { withRouter } from "react-router-dom";
+import "./Login.scss";
 
 class Login extends React.Component {
   state = {
     userId: "",
     userPw: "",
     isBtnDisabled: true,
-    btnStatus: "loginBtn",
+    btnStatus: "",
   };
 
-  handleChange = async (e) => {
-    await this.setState({
-      [e.target.name]: e.target.value,
-    });
-    this.handleBtn();
+  handleChange = (e) => {
+    this.setState(
+      {
+        [e.target.name]: e.target.value,
+      },
+      this.handleBtn
+    );
   };
 
   handleBtn = () => {
     if (this.state.userId.includes("@") && this.state.userPw.length >= 5) {
       this.setState({ isBtnDisabled: false, btnStatus: "loginBtn-active" });
     } else {
-      this.setState({ isBtnDisabled: true, btnStatus: "loginBtn" });
+      this.setState({ isBtnDisabled: true, btnStatus: "" });
     }
   };
 
@@ -32,11 +34,14 @@ class Login extends React.Component {
       alert("잘못된 접근입니다.");
     }
   };
+  //서버와 연동한 로그인 기능(인가) 구현될 경우,
+  // if, elseif문 추가해서 메인페이지 이동 또는 상황별 메세지 출력기능 추가예정
 
   render() {
+    const { userId, userPw, isBtnDisabled, btnStatus } = this.state;
     return (
-      <div className="LoginY">
-        <main>
+      <main className="LoginY">
+        <div className="LoginContents">
           <section className="imageSection">
             <img
               alt="smartphone that running instagram application"
@@ -47,19 +52,14 @@ class Login extends React.Component {
             <div className="logo">
               <img alt="Instagram logo" src="/images/common/textLogo.png" />
             </div>
-            <form
-              className="getId"
-              onChange={(e) => {
-                this.handleChange(e);
-              }}
-            >
+            <form className="getId" onChange={this.handleChange}>
               <input
                 id="id"
                 className="receiveLogin"
                 type="text"
                 name="userId"
                 placeholder="전화번호, 사용자 이름 또는 이메일"
-                value={this.state.userId}
+                value={userId}
               />
               <input
                 id="password"
@@ -67,21 +67,21 @@ class Login extends React.Component {
                 type="password"
                 name="userPw"
                 placeholder="비밀번호"
-                value={this.state.userPw}
+                value={userPw}
               />
               <button
-                className={this.state.btnStatus}
+                className={`loginBtn ${btnStatus}`}
                 type="submit"
                 onClick={this.goToMain}
-                disabled={this.state.isBtnDisabled}
+                disabled={isBtnDisabled}
               >
                 로그인
               </button>
             </form>
             <div className="forgetPw">비밀번호를 잊으셨나요?</div>
           </section>
-        </main>
-      </div>
+        </div>
+      </main>
     );
   }
 }

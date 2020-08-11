@@ -1,6 +1,6 @@
 @import "../../Styles/commons.scss";
 
-.Header {
+.Nav {
   position: fixed;
   z-index: 1;
   top: 0;
@@ -8,9 +8,7 @@
   right: 0;
   height: 54px;
   padding: 5px 10px;
-  text-align: center;
-  display: flex;
-  align-items: center;
+  @include center;
   background-color: $boxbackgroundColor;
   border-bottom: 1px solid $borderColor;
 
@@ -18,14 +16,12 @@
     height: 100%;
   }
 
-  nav {
+  .navContents {
     width: 100%;
     max-width: 935px;
     height: 30px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexCenterAndSetJustify(space-between);
 
     div {
       height: 100%;
