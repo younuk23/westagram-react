@@ -1,5 +1,6 @@
 import React from "react";
 import "./Comment.scss";
+import { Link } from "react-router-dom";
 
 class Comment extends React.Component {
   constructor(props) {
@@ -14,13 +15,13 @@ class Comment extends React.Component {
 
   render() {
     const { isItLiked, iLikeIt, deleteComment, index } = this.state;
+    const commentInfo = this.props.commentInfo;
     return (
       <li className="Comment">
         <div className="commentList__comments">
-          <a href="" className="authorName">
-            {this.props.commentInfo.author}
-          </a>
-          <span>&nbsp;{this.props.commentInfo.contents}</span>
+          <Link className="authorName">{commentInfo.author}</Link>
+          {/* 추후에 ID클릭시, 해당 사람의 페이지로 이동하는 기능 추가구현 */}
+          <span>&nbsp;{commentInfo.contents}</span>
         </div>
         <div className="commentListBtns">
           <img

@@ -1,5 +1,6 @@
 import React from "react";
 import Comment from "./Comment";
+import { Link } from "react-router-dom";
 import "./Feed.scss";
 
 class Feed extends React.Component {
@@ -104,9 +105,10 @@ class Feed extends React.Component {
               alt="avatar of who click like"
               src={feedInfo.avatarOfWhoLike}
             />
-            <a href="" className="authorName">
+            <Link className="authorName">
               {feedInfo.whoLike[feedInfo.whoLike.length - 1]}
-            </a>
+            </Link>
+            {/* 추후에 좋아요 한 사람 이름 누르면 해당 사람의 페이지로 이동하는 기능 추가 */}
             <span>님&nbsp;</span>
             <a href="" className="likeList">
               외&nbsp;{feedInfo.likeCount}명
