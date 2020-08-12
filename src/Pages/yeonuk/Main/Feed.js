@@ -47,6 +47,7 @@ class Feed extends React.Component {
 
   render() {
     const { commentInfo, commentInput, isItLiked } = this.state;
+    const feedInfo = this.props.feedInfo;
     return (
       <article className="Feed">
         <div className="feedHeader">
@@ -55,10 +56,8 @@ class Feed extends React.Component {
           </div>
           <div className="friendsName">
             <div className="names">
-              <span className="authorName">
-                {this.props.feedInfo.authorName}
-              </span>
-              <span className="location">{this.props.feedInfo.location}</span>
+              <span className="authorName">{feedInfo.authorName}</span>
+              <span className="location">{feedInfo.location}</span>
             </div>
             <button className="menuBtn">
               <img alt="menubutton" src="/images/yeonuk/threedots.png" />
@@ -66,7 +65,7 @@ class Feed extends React.Component {
           </div>
         </div>
         <div className="feedImg">
-          <img alt="feed image" src={this.props.feedInfo.imageUrl} />
+          <img alt="feed image" src={feedInfo.imageUrl} />
         </div>
         <div className="feedBottom">
           <div className="feedBottomIconList">
@@ -103,23 +102,23 @@ class Feed extends React.Component {
           <div className="likeArea">
             <img
               alt="avatar of who click like"
-              src={this.props.feedInfo.avatarOfWhoLike}
+              src={feedInfo.avatarOfWhoLike}
             />
             <a href="" className="authorName">
-              {this.props.feedInfo.whoLike}
+              {feedInfo.whoLike[feedInfo.whoLike.length - 1]}
             </a>
             <span>님&nbsp;</span>
             <a href="" className="likeList">
-              외&nbsp;{this.props.feedInfo.likeCount}명
+              외&nbsp;{feedInfo.likeCount}명
             </a>
             <span>이 좋아합니다</span>
           </div>
           <div className="commentArea">
             <div className="description">
               <a href="" className="authorName">
-                {this.props.feedInfo.authorName}
+                {feedInfo.authorName}
               </a>
-              <span>&nbsp;{this.props.feedInfo.description}</span>
+              <span>&nbsp;{feedInfo.description}</span>
               <span>
                 ...<button>더 보기</button>
               </span>

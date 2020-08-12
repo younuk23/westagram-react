@@ -41,7 +41,7 @@ class Login extends React.Component {
     const { userId, userPw, isBtnDisabled, btnStatus } = this.state;
     return (
       <main className="LoginY">
-        <div className="LoginContents">
+        <div className="loginContents">
           <section className="imageSection">
             <img
               alt="smartphone that running instagram application"
