@@ -50,7 +50,7 @@ class Feed extends React.Component {
     const { commentInfo, commentInput, isItLiked } = this.state;
     const feedInfo = this.props.feedInfo;
     return (
-      <article className="Feed">
+      <article className="FeedY">
         <div className="feedHeader">
           <div className="avatar">
             <img alt="avatar" src="/images/yeonuk/avatarOfYeonuk.jpg" />
