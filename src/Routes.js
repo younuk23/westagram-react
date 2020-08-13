@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LoginYeonuk from "./Pages/yeonuk/Login/Login";
 import MainYeonuk from "./Pages/yeonuk/Main/Main";
+import SingupYeonuk from "./Pages/yeonuk/Login/Signup";
 import LoginDoyoon from "./Pages/doyoon/Login/Login";
 import MainDoyoon from "./Pages/doyoon/Main/Main";
 import LoginHohyun from "./Pages/hohyun/Login/Login";
@@ -16,6 +17,7 @@ class Routes extends React.Component {
         <Switch>
           {/* <Route exact path="/" component={intro} /> */}
           <Route exact path="/login-yeonuk" component={LoginYeonuk} />
+          <Route exact path="/signup-yeonuk" component={SingupYeonuk} />
           <Route exact path="/main-yeonuk" component={MainYeonuk} />
           {/* <Route exact path="/login-doyoon" component={LoginDoyoon} />
           <Route exact path="/main-doyoon" component={MainDoyoon} />

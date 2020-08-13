@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./Login.scss";
 
 class Login extends React.Component {
@@ -8,6 +8,7 @@ class Login extends React.Component {
     userPw: "",
     isBtnDisabled: true,
     btnStatus: "",
+    url: "http://10.58.4.237:8000/user/signin",
   };
 
   handleChange = (e) => {
@@ -17,6 +18,21 @@ class Login extends React.Component {
       },
       this.handleBtn
     );
+  };
+
+  submit = () => {
+    fetch(this.state.url, {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.userId,
+        password: this.state.userPw,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        localStorage.setItem("Authorization", res.access_token);
+        console.log(localStorage);
+      });
   };
 
   handleBtn = () => {
@@ -71,14 +87,17 @@ class Login extends React.Component {
               />
               <button
                 className={`loginBtn ${btnStatus}`}
-                type="submit"
-                onClick={this.goToMain}
+                type="button"
+                onClick={this.submit}
                 disabled={isBtnDisabled}
               >
                 로그인
               </button>
             </form>
             <div className="forgetPw">비밀번호를 잊으셨나요?</div>
+            <Link to="/signup-yeonuk" className="signup">
+              회원가입
+            </Link>
           </section>
         </div>
       </main>

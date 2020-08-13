@@ -1,0 +1,50 @@
+@import "../../../Styles/commons.scss";
+
+.SignupY {
+  max-width: 950px;
+  height: 800px;
+  @include center;
+  margin: auto;
+  background-color: $backgroundColor;
+
+  .signupContents {
+    @include centerSetDirection(column);
+    padding-top: 40px;
+    border: 1px solid $borderColor;
+    background-color: $boxbackgroundColor;
+  }
+
+  .signupInputArea {
+    width: 350px;
+    height: 350px;
+    margin-top: 40px;
+    @include centerSetDirection(column);
+    justify-content: start;
+
+    input {
+      width: 268px;
+      height: 36px;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid $borderColor;
+      border-radius: $radius;
+      background-color: $backgroundColor;
+
+      &:last-of-type {
+        margin-bottom: 40px;
+      }
+    }
+
+    button {
+      width: 268px;
+      height: 30px;
+      padding: 0;
+      margin-top: 10px;
+      border: 1px solid transparent;
+      color: white;
+      background-color: $blueColor;
+      opacity: 0.3;
+      border-radius: $radius;
+    }
+  }
+}

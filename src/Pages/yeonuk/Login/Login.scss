@@ -1,9 +1,7 @@
-/* Style */
 @import "../../../Styles/commons.scss";
 
 .LoginY {
-  background-color: $backgroundColor;
-
+  margin: auto;
   img {
     height: 100%;
   }
@@ -12,6 +10,7 @@
     max-width: 506px;
     height: 506px;
     margin: 20px;
+    background-color: $boxbackgroundColor;
   }
 
   .loginContents {
@@ -23,6 +22,7 @@
   .imageSection {
     width: 454px;
     height: 618px;
+    background-color: $boxbackgroundColor;
   }
 
   section div,
@@ -38,12 +38,13 @@
     @include flexColumn;
     align-items: center;
     justify-content: flex-start;
-    background-color: $backgroundColor;
+    background-color: $boxbackgroundColor;
     border: 1px solid $borderColor;
     border-radius: $radius;
 
     .logo,
-    .forgetPw {
+    .forgetPw,
+    .signup {
       text-align: center;
     }
 
@@ -92,9 +93,16 @@
   }
 
   .forgetPw {
-    font-size: 12px;
     position: absolute;
-    bottom: 20px;
+    bottom: 40px;
+    font-size: 12px;
+    color: rgba(0, 55, 107, 1);
+  }
+
+  .signup {
+    position: absolute;
+    bottom: 10px;
+    font-size: 12px;
     color: rgba(0, 55, 107, 1);
   }
 }
