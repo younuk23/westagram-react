@@ -12,9 +12,10 @@ class Login extends React.Component {
   };
 
   handleChange = (e) => {
+    const { name, value } = e.target;
     this.setState(
       {
-        [e.target.name]: e.target.value,
+        [name]: value,
       },
       this.handleBtn
     );
@@ -88,7 +89,7 @@ class Login extends React.Component {
               <button
                 className={`loginBtn ${btnStatus}`}
                 type="button"
-                onClick={this.submit}
+                onClick={this.goToMain}
                 disabled={isBtnDisabled}
               >
                 로그인
