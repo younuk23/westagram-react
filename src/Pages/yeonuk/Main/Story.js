@@ -1,43 +1,7 @@
 import React from "react";
 
 class Story extends React.Component {
-  state = {
-    storyData: [
-      {
-        imgSrc: "/images/yeonuk/storypp1.jpg",
-        name: "James",
-        description: "16분 전",
-      },
-      {
-        imgSrc: "/images/yeonuk/storypp2.jpg",
-        name: "Jane",
-        description: "32분 전",
-      },
-      {
-        imgSrc: "/images/yeonuk/storypp3.jpg",
-        name: "John",
-        description: "1시간전",
-      },
-      {
-        imgSrc: "/images/yeonuk/storypp4.jpg",
-        name: "Nick",
-        description: "2시간 전",
-      },
-      {
-        imgSrc: "/images/yeonuk/storypp5.jpg",
-        name: "Sala",
-        description: "2시간 전",
-      },
-      {
-        imgSrc: "/images/yeonuk/storypp5.jpg",
-        name: "Instagram",
-        description: "3시간 전",
-      },
-    ],
-  };
-
   render() {
-    const { storyData } = this.state;
     return (
       <>
         <header>
@@ -55,7 +19,7 @@ class Story extends React.Component {
             <span className="seeAll">모두 보기</span>
           </div>
           <ul className="storyList">
-            {storyData.map((el) => {
+            {STORY_DATA.map((el) => {
               return (
                 <li className="story">
                   <div className="avatar">
@@ -74,5 +38,38 @@ class Story extends React.Component {
     );
   }
 }
+
+const STORY_DATA = [
+  {
+    imgSrc: "/images/yeonuk/storypp1.jpg",
+    name: "James",
+    description: "16분 전",
+  },
+  {
+    imgSrc: "/images/yeonuk/storypp2.jpg",
+    name: "Jane",
+    description: "32분 전",
+  },
+  {
+    imgSrc: "/images/yeonuk/storypp3.jpg",
+    name: "John",
+    description: "1시간전",
+  },
+  {
+    imgSrc: "/images/yeonuk/storypp4.jpg",
+    name: "Nick",
+    description: "2시간 전",
+  },
+  {
+    imgSrc: "/images/yeonuk/storypp5.jpg",
+    name: "Sala",
+    description: "2시간 전",
+  },
+  {
+    imgSrc: "/images/yeonuk/storypp5.jpg",
+    name: "Instagram",
+    description: "3시간 전",
+  },
+];
 
 export default Story;

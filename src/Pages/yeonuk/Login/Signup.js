@@ -44,29 +44,6 @@ class Signup extends React.Component {
       });
   };
 
-  inputContents = [
-    {
-      name: "name",
-      type: "text",
-      placeholder: "이름을 입력해주세요",
-    },
-    {
-      name: "phoneNumber",
-      type: "text",
-      placeholder: "전화번호를 입력해주세요",
-    },
-    {
-      name: "email",
-      type: "text",
-      placeholder: "email을 입력해주세요",
-    },
-    {
-      name: "password",
-      type: "password",
-      placeholder: "password를 입력해주세요",
-    },
-  ];
-
   render() {
     return (
       <main className="SignupY">
@@ -77,7 +54,7 @@ class Signup extends React.Component {
             src="/images/common/textLogo.png"
           />
           <form className="signupInputArea" onChange={this.handleChange}>
-            {this.inputContents.map((el) => {
+            {INPUT_CONTENTS.map((el) => {
               return (
                 <input
                   name={el.name}
@@ -95,5 +72,28 @@ class Signup extends React.Component {
     );
   }
 }
+
+const INPUT_CONTENTS = [
+  {
+    name: "name",
+    type: "text",
+    placeholder: "이름을 입력해주세요",
+  },
+  {
+    name: "phoneNumber",
+    type: "text",
+    placeholder: "전화번호를 입력해주세요",
+  },
+  {
+    name: "email",
+    type: "text",
+    placeholder: "email을 입력해주세요",
+  },
+  {
+    name: "password",
+    type: "password",
+    placeholder: "password를 입력해주세요",
+  },
+];
 
 export default withRouter(Signup);
