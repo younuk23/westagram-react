@@ -40,9 +40,9 @@
     },
     {
       "authorName": "Yeonuk",
-      "location": "선릉역 어메이",
+      "location": "선릉역 에머이",
       "imageUrl": "./images/yeonuk/feedImg3.jpg",
-      "whoLike": ["Amei"],
+      "whoLike": ["Emoi"],
       "avatarOfWhoLike": "./images/yeonuk/avatarOfYeonuk.jpg",
       "likeCount": "754",
       "description": "뒤집기",
