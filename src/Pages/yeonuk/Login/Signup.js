@@ -44,6 +44,29 @@ class Signup extends React.Component {
       });
   };
 
+  inputContents = [
+    {
+      name: "name",
+      type: "text",
+      placeholder: "이름을 입력해주세요",
+    },
+    {
+      name: "phoneNumber",
+      type: "text",
+      placeholder: "전화번호를 입력해주세요",
+    },
+    {
+      name: "email",
+      type: "text",
+      placeholder: "email을 입력해주세요",
+    },
+    {
+      name: "password",
+      type: "password",
+      placeholder: "password를 입력해주세요",
+    },
+  ];
+
   render() {
     return (
       <main className="SignupY">
@@ -54,26 +77,15 @@ class Signup extends React.Component {
             src="/images/common/textLogo.png"
           />
           <form className="signupInputArea" onChange={this.handleChange}>
-            <input
-              className="input name"
-              name="name"
-              placeholder="이름을 입력해주세요"
-            ></input>
-            <input
-              className="input name"
-              name="phoneNumber"
-              placeholder="전화번호를 입력해주세요"
-            ></input>
-            <input
-              className="input email"
-              name="email"
-              placeholder="email을 입력해주세요"
-            ></input>
-            <input
-              className="input pw"
-              name="password"
-              placeholder="password를 입력해주세요"
-            ></input>
+            {this.inputContents.map((el) => {
+              return (
+                <input
+                  name={el.name}
+                  type={el.type}
+                  placeholder={el.placeholder}
+                />
+              );
+            })}
             <button type="button" onClick={this.goToLogin}>
               Submit
             </button>

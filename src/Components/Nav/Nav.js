@@ -2,7 +2,25 @@ import React from "react";
 import "./Nav.scss";
 
 class Nav extends React.Component {
+  state = {
+    iconData: [
+      {
+        alt: "compass icon",
+        src: "/images/common/compass.png",
+      },
+      {
+        alt: "heart icon",
+        src: "/images/common/heart.png",
+      },
+      {
+        alt: "profile icon",
+        src: "/images/common/myPage.png",
+      },
+    ],
+  };
+
   render() {
+    const { iconData } = this.state;
     return (
       <nav className="Nav">
         <div className="navContents">
@@ -20,15 +38,13 @@ class Nav extends React.Component {
           </div>
           <input className="search" type="text" placeholder="검색" />
           <ul className="iconLists">
-            <li className="icon">
-              <img alt="compass icon" src="/images/common/compass.png" />
-            </li>
-            <li className="icon">
-              <img alt="heart icon" src="/images/common/heart.png" />
-            </li>
-            <li className="icon">
-              <img alt="Profile icon" src="/images/common/myPage.png" />
-            </li>
+            {iconData.map((el) => {
+              return (
+                <li className="icon">
+                  <img alt={el.alt} src={el.src} />
+                </li>
+              );
+            })}
           </ul>
         </div>
       </nav>

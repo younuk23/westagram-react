@@ -15,16 +15,16 @@ class Routes extends React.Component {
     return (
       <Router>
         <Switch>
-          {/* <Route exact path="/" component={intro} /> */}
+          <Route exact path="/" component={intro} />
           <Route exact path="/login-yeonuk" component={LoginYeonuk} />
           <Route exact path="/signup-yeonuk" component={SingupYeonuk} />
           <Route exact path="/main-yeonuk" component={MainYeonuk} />
-          {/* <Route exact path="/login-doyoon" component={LoginDoyoon} />
+          <Route exact path="/login-doyoon" component={LoginDoyoon} />
           <Route exact path="/main-doyoon" component={MainDoyoon} />
           <Route exact path="/login-hohyun" component={LoginHohyun} />
           <Route exact path="/main-hohyun" component={MainHohyun} />
           <Route exact path="/login-sumin" component={LoginSumin} />
-          <Route exact path="/main-sumin" component={MainSumin} /> */}
+          <Route exact path="/main-sumin" component={MainSumin} />
         </Switch>
       </Router>
     );
